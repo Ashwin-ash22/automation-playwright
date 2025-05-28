@@ -1,0 +1,16 @@
+{"Data": {
+    "RahulShetty": {
+        "Name": "Zoro",
+        "Email": "zoro@yopmail.com",
+        "Password": "Zoro@22"
+    },
+    "URL":{
+        "BaseUrl": "/",
+        "YopMailURL": "https://yopmail.com/",
+        "URL_Messgae":{
+        "RahulShetty_LaunchSite": "(RahulShetty)",
+        "YopMail": "(Yopmail)"
+        }
+    }
+ }
+}
