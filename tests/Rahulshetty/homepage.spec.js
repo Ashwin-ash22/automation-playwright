@@ -29,7 +29,7 @@ test('Login in Home page (Page Object)', async ({ page }) => {
  await homepage.verifyProfileIcon();
 });
 
-test.only('SignUp in Home page (Page Object)', async ({ page, context }) => {
+test('SignUp in Home page (Page Object)', async ({ page, context }) => {
  const homepage = new Home(page);
  await homepage.clickRgisterButton();
  const loginpage = new Login(page);
