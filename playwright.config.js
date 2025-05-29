@@ -48,12 +48,24 @@ export default defineConfig({
 
     // {
     //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
+    //   timeout: 360 * 1000,
+    //   use: { ...devices['Desktop Firefox'], 
+    //     headless: false,
+    //     screenshot: "on",
+    //     video: "retain-on-failure",
+    //     trace: "on"
+    //   },
     // },
 
     // {
     //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   timeout: 360 * 1000,
+    //   use: { ...devices['Desktop Safari'],
+    //      headless: false,
+    //     screenshot: "on",
+    //     video: "retain-on-failure",
+    //     trace: "on"
+    //    },
     // },
 
     /* Test against mobile viewports. */
