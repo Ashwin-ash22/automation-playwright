@@ -1,6 +1,17 @@
 name: Playwright Tests
 
 on:
+  workflow_dispatch:
+    inputs:
+      test_url:
+        description: 'Test URL (from config file)'
+        required: true
+        default: 'https://rahulshettyacademy.com/'
+      test_command:
+        description: 'NPM script to run'
+        required: true
+        default: 'test'
+
   # push:
   #   branches: [ main, master ]
   # pull_request:
@@ -24,7 +35,9 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=html,junit
+        env:
+          TEST_URL: ${{ github.event.inputs.test_url }}
+        run: npm run ${{ github.event.inputs.test_command }}
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
@@ -33,11 +46,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
-      - name: Upload JUnit results
-        uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: junit-results
-          path: test-results/
-          retention-days: 7
