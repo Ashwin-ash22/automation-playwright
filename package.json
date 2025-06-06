@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --headed --grep=@ash --config=playwright.config.js"
+    "test": "npx playwright test --grep=@ash --config=playwright.config.js"
   },
   "keywords": [],
   "author": "",
