@@ -46,14 +46,14 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      - name: Upload HTML report for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-        path: playwright-report
+      # - name: Upload HTML report for GitHub Pages
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #   path: playwright-report
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
 
       - name: Add summary with report link
         run: echo "🔗 [View Playwright HTML Report](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
