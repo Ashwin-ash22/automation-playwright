@@ -33,6 +33,11 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+        permissions:
+        contents: read
+        pages: write
+        id-token: write
+
       - name: Run Playwright tests
         env:
           TEST_URL: ${{ github.event.inputs.test_url }}
