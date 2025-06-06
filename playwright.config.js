@@ -39,7 +39,7 @@ export default defineConfig({
       name: 'chromium',
       timeout: 360 * 1000,
       use: { ...devices['Desktop Chrome'],
-        headless: false,
+        headless: true,
         screenshot: "on",
         video: "retain-on-failure",
         trace: "on"
