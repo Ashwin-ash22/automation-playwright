@@ -11,11 +11,6 @@ on:
         description: 'NPM script to run'
         required: true
         default: 'test'
-      permissions:
-        contents: read
-        pages: write
-        id-token: write
-
   # push:
   #   branches: [ main, master ]
   # pull_request:
