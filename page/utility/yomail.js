@@ -4,7 +4,7 @@ module.exports.Utlity = class Utlity {
         this.newPage = newPage;
         this.typethemail = newPage.getByPlaceholder('Enter your inbox here');
         this.checkinboxbutton = newPage.locator("//button[@class='md']");
-        this.refresh = newPage.getByTestId('refresh');
+        this.refresh = newPage.locator("//button[@id='refresh'");
         this.otp = newPage.locator('iframe[name="ifmail"]').contentFrame().locator("(//td[@valign='top']//p)[3]");
     }
 
@@ -25,7 +25,8 @@ module.exports.Utlity = class Utlity {
                 break;
             } catch {
                 console.log("Mail is still empty, refreshing and retrying...");
-                await this.refresh.click();
+                // await this.refresh.click();
+                await this.newPage.reload()
                 attempts++;
             }
         }

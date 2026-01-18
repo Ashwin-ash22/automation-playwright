@@ -1,5 +1,10 @@
 name: Playwright Tests
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +16,6 @@ on:
         description: 'NPM script to run'
         required: true
         default: 'test'
-
   # push:
   #   branches: [ main, master ]
   # pull_request:
@@ -21,6 +25,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     steps:
       - uses: actions/checkout@v4
 
@@ -46,3 +52,15 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+      - name: Upload HTML report for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: playwright-report
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Add summary with report link
+        run: echo "🔗 [View Playwright HTML Report](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY

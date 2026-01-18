@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { Home } from '../../page/Rahulshetty/homepage';
 import { Login } from '../../page/Rahulshetty/Loginpage';
-import { Data } from '../../data/data.json'
+import { Data } from '../../data/data.json';
 import { navigateToURL } from '../../page/utility/utilityfile'
 require('../../page/utility/utilityfile')
 

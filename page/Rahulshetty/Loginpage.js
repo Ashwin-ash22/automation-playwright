@@ -110,5 +110,4 @@ module.exports.Login = class Login {
         await this.insertOTP();
         await this.clickVerifyButton();
     }
-
 };
