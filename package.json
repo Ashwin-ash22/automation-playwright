@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --grep=@ash --config=playwright.config.js"
+    "test": "npx playwright test --grep=@ash --config=playwright.config.js",
+    "postinstall": "npm update browserstack-node-sdk",
+    "test-browserstack": "npx browserstack-node-sdk playwright test --grep=@ash --config=playwright.config.js"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +13,7 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.18"
+    "@types/node": "^22.15.18",
+    "browserstack-node-sdk": "^1.49.2"
   }
 }
