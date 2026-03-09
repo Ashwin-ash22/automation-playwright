@@ -5,9 +5,9 @@ import { Utlity } from '../utility/yomail'
 module.exports.Login = class Login {
     constructor(page) {
         this.page = page;
-        this.loginlink = page.locator("(//a[text()='Log in'])");
-        this.loginwithidpwd = page.locator("//a[@class='loginPasswordBtn']");
-        this.emailaddress = page.locator("//input[@id='email']");
+        this.loginlink = page.getByRole("link", { name: "Log in" });
+        this.loginwithidpwd = page.getByRole("link", { name: "log in with a password" });
+        this.emailaddress = page.getByRole("textbox", { name: "Email" });
         this.password = page.locator("//input[@id='password']");
         this.signbutton = page.locator("//input[@value='Log in']");
         this.name = page.locator("//input[@id='name']");

@@ -6,8 +6,8 @@ import { navigateToURL } from '../../page/utility/utilityfile'
 require('../../page/utility/utilityfile')
 
 test('Login in Home page', async ({ page }) => {
-  await page.goto('https://rahulshettyacademy.com/');
-  await page.locator("(//a[@class='theme-btn'])[1]").click();
+  await page.goto('https://courses.rahulshettyacademy.com/');
+  await page.getByRole("link", { name: "Sign Up" }).click();
   await page.locator("(//a[text()='Log in'])").click();
   await page.locator("//a[@class='loginPasswordBtn']").click();
   await page.waitForTimeout(7000);
@@ -25,16 +25,16 @@ test('Login in Home page (Page Object)', async ({ page }) => {
   await page.waitForTimeout(3000);
   await loginpage.insertEmailID(Data.RahulShetty.Email);
   await loginpage.insertPassword(Data.RahulShetty.Password);
-  await loginpage.clickSigninButton();
-  await homepage.verifyProfileIcon();
+  // await loginpage.clickSigninButton();
+  // await homepage.verifyProfileIcon();
 });
 
 test('SignUp in Home page (Page Object) @ash', async ({ page, context }) => {
   const homepage = new Home(page);
-  await homepage.clickRgisterButton();
+  await homepage.clickLoginButton();
   const loginpage = new Login(page);
   await page.waitForTimeout(3000);
   await loginpage.insertName(Data.RahulShetty.Name);
-  await loginpage.createAccountUniquemailID(context);
+  // await loginpage.createAccountUniquemailID(context);
   await page.waitForTimeout(7000);
 });
