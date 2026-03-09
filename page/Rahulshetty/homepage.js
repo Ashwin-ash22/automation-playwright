@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 module.exports.Home = class Home {
     constructor(page) {
         this.page = page;
-        this.loginbutton = page.locator("(//a[@class='theme-btn'])[1]");
+        this.loginbutton = page.getByRole("link", { name: "Sign Up" });
         this.registerbutton = page.locator("//a[text()='Register']")
         this.profileicon = page.locator("//img[contains(@alt, 'Profile image for')]");
     }

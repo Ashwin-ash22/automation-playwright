@@ -2,7 +2,7 @@ userName: ashwinash_L8rKlV
 accessKey: f5PkNdY4zPWjYCoaTFZL
 projectName: BrowserStack Samples
 buildName: browserstack build
-buildIdentifier: '#3'
+buildIdentifier: '#7'
 platforms:
   - os: Windows
     osVersion: 11
@@ -14,6 +14,10 @@ platforms:
   - deviceName: Samsung Galaxy S22 Ultra
     browserName: chrome
     osVersion: 12
+  - os: Mac
+    osVersion: latest
+    browserName: safari
+    browserVersion: latest
 parallelsPerPlatform: 1
 browserstackLocal: true
 debug: false
@@ -26,7 +30,7 @@ testContextOptions:
   skipSessionName: false
 logDir: C:\Users\lenovo\OneDrive\Desktop\Automation\automation-playwright\log
 browserStackLocalOptions:
-  localIdentifier: 18_Jan_2135_DESKTOP-T96U850_mgcv
+  localIdentifier: 21_Feb_1732_DESKTOP-T96U850_payn
   skipBinaryInitialisation: false
 proxySettings: {}
 accessibility: false

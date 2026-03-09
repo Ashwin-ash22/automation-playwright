@@ -38,6 +38,10 @@ platforms:
   - deviceName: Samsung Galaxy S22 Ultra
     browserName: chrome # Try 'samsung' for Samsung browser
     osVersion: 12.0
+  - os: Mac
+    osVersion: latest
+    browserName: safari
+    browserVersion: latest
     
 # =======================
 # Parallels per Platform
