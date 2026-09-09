@@ -35,6 +35,8 @@ test('SignUp in Home page (Page Object) @ash', async ({ page, context }) => {
   const loginpage = new Login(page);
   await page.waitForTimeout(3000);
   await loginpage.insertName(Data.RahulShetty.Name);
-  // await loginpage.createAccountUniquemailID(context);
+  await loginpage.createAccountUniquemailID(context);
   await page.waitForTimeout(7000);
+  await homepage.verifyProfileIcon();
+
 });

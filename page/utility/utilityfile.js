@@ -23,5 +23,5 @@ export async function navigateToURL(page, Lanched_site, URL) {
 }
 
 test.beforeEach(async ({ page }) => {
-    await navigateToURL(page, "", Data.URL.BaseUrl)
+    await navigateToURL(page, "RahulShetty_LaunchSite", Data.URL.BaseUrl)
 });
