@@ -42,7 +42,11 @@ export default defineConfig({
         headless: true,
         screenshot: "on",
         video: "retain-on-failure",
-        trace: "on"
+        trace: "on",
+         // Add context options
+      launchOptions: {
+        args: ['--disable-blink-features=AutomationControlled']
+      }
       },
     },
 
