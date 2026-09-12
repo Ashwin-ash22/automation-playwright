@@ -68,4 +68,4 @@ jobs:
 
       - name: Add summary for feature branches
         if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
-        run: echo "✅ Playwright tests completed successfully! Report available in Artifacts." >> $GITHUB_STEP_SUMMARY
+        run: echo "🔗 [View Playwright HTML Report](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
