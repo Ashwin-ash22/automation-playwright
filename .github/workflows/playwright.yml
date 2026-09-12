@@ -1,5 +1,10 @@
 name: Playwright Tests
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -20,16 +25,6 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: "pages"
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -57,13 +52,20 @@ jobs:
           retention-days: 30
 
       - name: Upload HTML report for GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
           path: playwright-report
 
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Add summary with report link
+      - name: Add summary with report link (main/master)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: echo "🔗 [View Playwright HTML Report](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
+
+      - name: Add summary for feature branches
+        if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
+        run: echo "✅ Playwright tests completed successfully! Report available in Artifacts." >> $GITHUB_STEP_SUMMARY
