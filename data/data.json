@@ -7,6 +7,12 @@
     "URL":{
         "BaseUrl": "/",
         "YopMailURL": "https://yopmail.com/",
+        "My_dashboard": "/l/dashboard",
+        "Browse_products": "/l/products?sortKey=recommended&sortDirection=asc&page=1",
+        "Home": "https://rahulshettyacademy.com/",
+        "Lifetime_Access": "https://rahulshettyacademy.com/all-access-subscription",
+        "Mentorship": "https://rahulshettyacademy.com/mentorship",
+        "Consulting": "https://rahulshettyacademy.com/consulting",
         "URL_Messgae":{
         "RahulShetty_LaunchSite": "(RahulShetty)",
         "YopMail": "(Yopmail)"
