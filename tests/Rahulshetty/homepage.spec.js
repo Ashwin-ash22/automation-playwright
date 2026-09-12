@@ -40,7 +40,7 @@ test('SignUp in Home page (Page Object) @ash', async ({ page, context }) => {
   await homepage.verifyProfileIcon();
 });
 
-test.only('Validating the L1 Navigation @ash', async ({ page, context }) => {
+test('Validating the L1 Navigation @ash', async ({ page, context }) => {
   const homepage = new Home(page);
   await homepage.clickLoginButton();
   const loginpage = new Login(page);
