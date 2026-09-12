@@ -62,10 +62,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Add summary with report link (main/master)
+      - name: Add summary with report link
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: echo "🔗 [View Playwright HTML Report](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
-
-      - name: Add summary for feature branches
-        if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
-        run: echo "✅ Playwright tests completed successfully! Report available in Artifacts." >> $GITHUB_STEP_SUMMARY
